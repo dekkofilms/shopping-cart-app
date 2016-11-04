@@ -1,0 +1,54 @@
+<h1>Welcome to MEAN Tea!</h1>
+
+<p>
+  Search by Category:
+  <select name="category" class="ui dropdown" id="select" ng-model="selected">
+    <option value="All">All</option>
+    <option ng-repeat="category in view.categories" value="{{category | lowercase}}">{{category}}</option>
+  </select>
+  <span class="ui input">
+    <input type="text" ng-model="name" placeholder="Search by name...">
+  </span>
+</p>
+
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th><h3>Tea</h3></th>
+      <th><h3>Information</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="top aligned" ng-repeat="tea in view.teas | categorySearch: selected | nameSearch: name">
+      <td>
+        <img ng-src="{{tea.imageUrl}}" alt="">
+      </td>
+      <td>
+        <div class="ui stackable grid">
+          <div class="row">
+            <div class="twelve wide column">
+              <h2>{{tea.name}}</h2>
+              <p>Price: {{tea.price/100 | currency}}</p>
+              <p>Ingredients: {{tea.ingredients}}</p>
+              <p>In Stock? <span ng-if="tea.inStock">Yes</span><span ng-if="!tea.inStock">No</span></p>
+              <p>Categories: <ul><li ng-repeat="category in tea.categories">{{category}}</li></ul></p>
+            </div>
+            <div class="four wide column">
+              <h2>
+                Quantity:
+                <select name="quantity" class="ui dropdown" id="select">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+              </h2>
+              <p>
+                <button class="positive ui button">Add to Bag</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

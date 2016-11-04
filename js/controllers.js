@@ -1,6 +1,13 @@
 'use strict';
 
 app.controller('teaStore', ['$scope', function ($scope) {
+  $scope.view = {};
+  $scope.view.categories = ['Dark', 'Cold', 'Awesome', 'Dry', 'Hot', 'Summer', 'Lucid', 'Warm', 'Winter', 'Spring']
+
+
+  $scope.selected = 'All';
+  $scope.name = null;
+
   $scope.view.teas = [
                       {
                           "_id": "55c8ee82152165d244b98300",
