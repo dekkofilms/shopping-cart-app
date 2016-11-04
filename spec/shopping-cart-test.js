@@ -56,7 +56,14 @@ describe('shopping cart app', function() {
   });
 
   it('when you add an item, it displays in your Shopping Cart with the right quantity', function () {
-    
+    let checkoutButton = element(by.name('cart-button'));
+    let addToBag = element.all(by.name('add-to-bag'));
+    let quantity = element.all(by.tagName('option'));
+
+    quantity.get(13).click();
+    addToBag.get(0).click();
+
+    expect(checkoutButton.getText()).toBe('Checkout | Bag (1)');
   });
 
 });

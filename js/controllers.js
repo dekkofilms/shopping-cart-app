@@ -8,6 +8,24 @@ app.controller('teaStore', ['$scope', function ($scope) {
   $scope.selected = 'All';
   $scope.name = null;
 
+  $scope.addToBag = function (id, quantity) {
+    console.log(id);
+    console.log(typeof parseInt(quantity));
+    console.log(quantity);
+
+    if (parseInt(quantity) > 0) {
+      let newItem = {
+        'teaId' : id,
+        'quantity' : quantity,
+      }
+      $scope.view.checkoutBag.push(newItem);
+    }
+
+    console.log($scope.view.checkoutBag);
+  };
+
+  $scope.view.checkoutBag = [];
+
   $scope.view.teas = [
                       {
                           "_id": "55c8ee82152165d244b98300",
@@ -21,7 +39,6 @@ app.controller('teaStore', ['$scope', function ($scope) {
                           "__v": 0,
                           "categories": [ "dark", "cold"]
                       },
-
                       {
                           "_id": "55c8ee82152165d244b98301",
                           "name": "Incompactness syrup",
