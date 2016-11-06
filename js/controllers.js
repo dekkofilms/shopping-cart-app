@@ -9,7 +9,7 @@ app.controller('teaStore', ['$scope', 'checkout', function ($scope, checkout) {
   $scope.name = null;
   $scope.view.checkoutBag = [];
 
-  //Going to my service
+  //Going to the checkout service
   $scope.addToBag = function (id, quantity) {
     checkout.addToBag(id, quantity);
   }
