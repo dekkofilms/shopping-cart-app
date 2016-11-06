@@ -10,8 +10,9 @@ app.controller('teaStore', ['$scope', 'checkout', function ($scope, checkout) {
   $scope.view.checkoutBag = [];
 
   //Going to the checkout service
-  $scope.addToBag = function (id, quantity) {
-    checkout.addToBag(id, quantity);
+  //tea.imageUrl, tea.name, tea.price, tea.ingredients, tea._id, quantity
+  $scope.addToBag = function (image, name, price, ingredients, id, quantity) {
+    checkout.addToBag(image, name, price, ingredients, id, quantity);
   }
 
   //
