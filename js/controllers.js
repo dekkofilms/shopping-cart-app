@@ -13,7 +13,7 @@ app.controller('teaStore', ['$scope', 'checkout', '$location', function ($scope,
   $scope.addToBag = function (image, name, price, ingredients, id, quantity) {
     checkout.addToBag(image, name, price, ingredients, id, quantity);
   }
-  
+
   $scope.view.checkoutBag = checkout.checkoutBag;
 
   $scope.cartPage = function () {
@@ -146,5 +146,11 @@ app.controller('teaStore', ['$scope', 'checkout', '$location', function ($scope,
 
 app.controller('cart', ['$scope', 'checkout', function ($scope, checkout) {
   $scope.view = {};
+  $scope.view.subtotal;
   $scope.view.cart = checkout.checkoutBag;
+
+  checkout.checkoutBag.forEach(function (item) {
+    $scope.view.subtotal = $scope.view.subtotal + (item.price/100 * item.quantity);
+  });
+
 }]);

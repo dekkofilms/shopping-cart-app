@@ -1,7 +1,7 @@
 app.service('checkout', function () {
   this.checkoutBag = [];
 
-  var countID = 0
+  var countID = 0;
   this.addToBag = function (image, name, price, ingredients, id, quantity) {
 
     if (parseInt(quantity) > 0) {
