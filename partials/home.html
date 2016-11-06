@@ -14,7 +14,7 @@
       <ng-pluralize count="view.checkoutBag.length"
                     when="{'0': 'Checkout | Bag: Empty!',
                            'one': 'Checkout | Bag (1)',
-                           'other': 'Checkout | Bag ({})'}">
+                           'other': 'Checkout | Bag ({{view.checkoutBag.length}})'}">
       </ng-pluralize>
     </button>
   </span>

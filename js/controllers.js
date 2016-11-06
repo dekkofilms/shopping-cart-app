@@ -12,8 +12,9 @@ app.controller('teaStore', ['$scope', 'checkout', '$location', function ($scope,
   //Going to the checkout service
   $scope.addToBag = function (image, name, price, ingredients, id, quantity) {
     checkout.addToBag(image, name, price, ingredients, id, quantity);
-    $scope.view.checkoutBag = checkout.checkoutBag;
   }
+  
+  $scope.view.checkoutBag = checkout.checkoutBag;
 
   $scope.cartPage = function () {
     $location.path('/cart')
