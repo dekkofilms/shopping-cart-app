@@ -25,7 +25,7 @@
         </div>
       </td>
       <td>
-        <select name="quantity" class="ui dropdown" id="select" ng-model="quantity">
+        <select name="quantity" class="ui dropdown" id="select" ng-model="item.quantity">
           <option ng-repeat="qty in [1,2,3,4,5,6,7,8,9]">{{qty}}</option>
         </select>
       </td>
@@ -33,7 +33,6 @@
         {{item.price/100 * item.quantity | currency}}
       </td>
       <td>
-        <button class="ui button">Edit</button>
         <button class="ui button">Remove</button>
       </td>
     </tr>
