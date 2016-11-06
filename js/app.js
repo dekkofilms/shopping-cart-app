@@ -10,10 +10,14 @@ app.config(function ($routeProvider) {
     })
     .when('/about', {
       templateUrl: 'partials/about.html',
-      controller: 'test',
+      // controller: '',
     })
     .when('/contact', {
       templateUrl: 'partials/contact.html',
       // controller: '',
+    })
+    .when('/cart', {
+      templateUrl: 'partials/cart.html',
+      controller: 'cart',
     })
 });

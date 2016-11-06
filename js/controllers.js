@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('teaStore', ['$scope', 'checkout', function ($scope, checkout) {
+app.controller('teaStore', ['$scope', 'checkout', '$location', function ($scope, checkout, $location) {
   $scope.view = {};
   $scope.view.categories = ['Dark', 'Cold', 'Awesome', 'Dry', 'Hot', 'Summer', 'Lucid', 'Warm', 'Winter', 'Spring']
 
@@ -10,28 +10,14 @@ app.controller('teaStore', ['$scope', 'checkout', function ($scope, checkout) {
   $scope.view.checkoutBag = [];
 
   //Going to the checkout service
-  //tea.imageUrl, tea.name, tea.price, tea.ingredients, tea._id, quantity
   $scope.addToBag = function (image, name, price, ingredients, id, quantity) {
     checkout.addToBag(image, name, price, ingredients, id, quantity);
+    $scope.view.checkoutBag = checkout.checkoutBag;
   }
 
-  //
-  // $scope.addToBag = function (id, quantity) {
-  //   console.log(id);
-  //   console.log(typeof parseInt(quantity));
-  //   console.log(quantity);
-  //
-  //   if (parseInt(quantity) > 0) {
-  //     let newItem = {
-  //       'teaId' : id,
-  //       'quantity' : quantity,
-  //     }
-  //     $scope.view.checkoutBag.push(newItem);
-  //   }
-  //
-  //   console.log($scope.view.checkoutBag);
-  // };
-
+  $scope.cartPage = function () {
+    $location.path('/cart')
+  };
 
   $scope.view.teas = [
                       {
@@ -157,7 +143,7 @@ app.controller('teaStore', ['$scope', 'checkout', function ($scope, checkout) {
                     ]
 }]);
 
-// app.controller('test', ['$scope', 'checkout', function ($scope, checkout) {
-//   $scope.view = {};
-//   $scope.view.cart = checkout.checkoutBag;
-// }]);
+app.controller('cart', ['$scope', 'checkout', function ($scope, checkout) {
+  $scope.view = {};
+  $scope.view.cart = checkout.checkoutBag;
+}]);

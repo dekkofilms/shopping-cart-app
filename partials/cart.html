@@ -1,0 +1,28 @@
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th><h3>Tea</h3></th>
+      <th><h3>Information</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="top aligned" ng-repeat="item in view.cart">
+      <td>
+        <img ng-src="{{item.imageUrl}}" alt="">
+      </td>
+      <td>
+        <div class="ui stackable grid">
+          <div class="row">
+            <div class="twelve wide column">
+              <h2>{{item.name}}</h2>
+              <p>Price: {{item.price/100 | currency}}</p>
+              <p>Ingredients: {{item.ingredients}}</p>
+            </div>
+            <div class="four wide column">
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -10,7 +10,7 @@
     <input type="text" ng-model="name" placeholder="Search by name...">
   </span>
   <span>
-    <button type="button" name="cart-button" class="negative ui button">
+    <button type="button" name="cart-button" class="negative ui button" ng-click="cartPage()">
       <ng-pluralize count="view.checkoutBag.length"
                     when="{'0': 'Checkout | Bag: Empty!',
                            'one': 'Checkout | Bag (1)',
