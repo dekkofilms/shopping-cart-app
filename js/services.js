@@ -5,6 +5,7 @@ app.service('checkout', function () {
   this.addToBag = function (image, name, price, ingredients, id, quantity) {
 
     if (parseInt(quantity) > 0) {
+      
       let newItem = {
         'id' : countID,
         'teaId' : id,
@@ -14,6 +15,7 @@ app.service('checkout', function () {
         'price' : price,
         'ingredients' : ingredients,
       }
+
       this.checkoutBag.push(newItem);
       countID++;
     }

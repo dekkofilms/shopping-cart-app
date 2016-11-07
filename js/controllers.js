@@ -4,7 +4,6 @@ app.controller('teaStore', ['$scope', 'checkout', '$location', function ($scope,
   $scope.view = {};
   $scope.view.categories = ['Dark', 'Cold', 'Awesome', 'Dry', 'Hot', 'Summer', 'Lucid', 'Warm', 'Winter', 'Spring']
 
-
   $scope.selected = 'All';
   $scope.name = null;
   $scope.view.checkoutBag = [];
