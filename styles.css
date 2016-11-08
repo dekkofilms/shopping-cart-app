@@ -121,14 +121,6 @@ h1 {
   }
 }
 
-.btn--twitter {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-
-  padding: .5rem;
-
-  background: $blue;
-
-  color: #fff;
+.caffeinemeter-box {
+  border: 1px solid black;
 }
