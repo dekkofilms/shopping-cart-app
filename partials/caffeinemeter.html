@@ -1,11 +1,17 @@
-<div class="caffeinemeter-box">
-  <h3>Caffeine Meter</h3>
-  <p>mg/serving: {{scale}}</p>
-  <p>Rating: {{rating}}</p>
-  <div class="gauge-section">
-    <div class="mask">
+<div class="ui raised stackable card">
+  <div id="{{id}}" class="gauge-section">
+    <!-- <div class="mask">
       <div class="semi-circle"></div>
       <div class="semi-circle--mask"></div>
+    </div> -->
+  </div>
+  <div class="content">
+    <div class="header">
+      <h3>Caffeine Meter</h3>
+    </div>
+    <div class="meta">
+      <p>mg/serving: <strong>{{scale}}</strong></p>
+      <p>Rating: <strong>{{rating}}</strong></p>
     </div>
   </div>
 </div>
