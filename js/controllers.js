@@ -148,17 +148,21 @@ app.controller('cart', ['$scope', 'checkout', function ($scope, checkout) {
   $scope.view.subtotal = 0;
   $scope.view.cart = checkout.checkoutBag;
 
+  //adds the initial cart when you first go to the page
   checkout.checkoutBag.forEach(function (item) {
-    console.log(item);
     $scope.view.subtotal += (item.price/100 * item.quantity);
   });
 
+  //adds the cart total whenever you edit the quantities in the bag
   $scope.updateSubtotal = function(){
+    //have to reset the total back to zero because it adds all the items over again
     $scope.view.subtotal = 0;
+
     checkout.checkoutBag.forEach(function (item) {
       console.log(item);
       $scope.view.subtotal = $scope.view.subtotal + (item.price/100 * parseInt(item.quantity));
     });
+
   }
 
 
