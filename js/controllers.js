@@ -145,11 +145,24 @@ app.controller('teaStore', ['$scope', 'checkout', '$location', function ($scope,
 
 app.controller('cart', ['$scope', 'checkout', function ($scope, checkout) {
   $scope.view = {};
-  $scope.view.subtotal;
+  $scope.view.subtotal = 0;
   $scope.view.cart = checkout.checkoutBag;
 
   checkout.checkoutBag.forEach(function (item) {
-    $scope.view.subtotal = $scope.view.subtotal + (item.price/100 * item.quantity);
+    console.log(item);
+    $scope.view.subtotal += (item.price/100 * item.quantity);
   });
+
+  $scope.updateSubtotal = function(){
+    $scope.view.subtotal = 0;
+    checkout.checkoutBag.forEach(function (item) {
+      console.log(item);
+      $scope.view.subtotal = $scope.view.subtotal + (item.price/100 * parseInt(item.quantity));
+    });
+  }
+
+
+
+
 
 }]);
