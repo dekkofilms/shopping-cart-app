@@ -154,7 +154,7 @@ app.controller('cart', ['$scope', 'checkout', function ($scope, checkout) {
   });
 
   //adds the cart total whenever you edit the quantities in the bag
-  $scope.updateSubtotal = function(){
+  $scope.updateSubtotal = function() {
     //have to reset the total back to zero because it adds all the items over again
     $scope.view.subtotal = 0;
 
@@ -163,9 +163,19 @@ app.controller('cart', ['$scope', 'checkout', function ($scope, checkout) {
       $scope.view.subtotal = $scope.view.subtotal + (item.price/100 * parseInt(item.quantity));
     });
 
-  }
+  };
 
-
+  $scope.remove = function (id) {
+    console.log('hit');
+    console.log(id);
+    checkout.checkoutBag.forEach(function (item) {
+      if (item.id === id) {
+        var index = checkout.checkoutBag.indexOf(item);
+        checkout.checkoutBag.splice(index, 1);
+        $scope.view.cart = checkout.checkoutBag;
+      }
+    });
+  };
 
 
 

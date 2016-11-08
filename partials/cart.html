@@ -38,7 +38,7 @@
         {{item.price/100 * item.quantity | currency}}
       </td>
       <td>
-        <button class="ui button">Remove</button>
+        <button class="ui button" ng-click="remove(item.id); updateSubtotal()">Remove</button>
       </td>
     </tr>
   </tbody>
